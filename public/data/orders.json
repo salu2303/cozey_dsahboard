@@ -1,0 +1,117 @@
+[
+    {
+      "order_id": 1,
+      "order_total": 150,
+      "order_date": "2025-05-18",
+      "shipping_address": "123 Main St, Anytown, USA",
+      "customer_name": "John Doe",
+      "customer_email": "john@example.com",
+      "line_items": [
+        {
+          "line_item_id": 1,
+          "product_id": "V001",
+          "product_name": "Valentines Box",
+          "price": 50
+        },
+        {
+          "line_item_id": 2,
+          "product_id": "B001",
+          "product_name": "Birthday Box",
+          "price": 60
+        }
+      ]
+    },
+    {
+      "order_id": 2,
+      "order_total": 100,
+      "order_date": "2025-05-19",
+      "shipping_address": "456 Elm St, Othertown, USA",
+      "customer_name": "Jane Smith",
+      "customer_email": "jane@example.com",
+      "line_items": [
+        {
+          "line_item_id": 1,
+          "product_id": "B001",
+          "product_name": "Birthday Box",
+          "price": 60
+        }
+      ]
+    },
+    {
+      "order_id": 3,
+      "order_total": 200,
+      "order_date": "2025-05-20",
+      "shipping_address": "789 Oak St, Sometown, USA",
+      "customer_name": "Alice Johnson",
+      "customer_email": "alice@example.com",
+      "line_items": [
+        {
+          "line_item_id": 1,
+          "product_id": "V001",
+          "product_name": "Valentines Box",
+          "price": 50
+        },
+        {
+          "line_item_id": 2,
+          "product_id": "V001",
+          "product_name": "Valentines Box",
+          "price": 50
+        },
+        {
+          "line_item_id": 3,
+          "product_id": "C001",
+          "product_name": "Client Gift Box",
+          "price": 100
+        }
+      ]
+    },
+    {
+      "order_id": 4,
+      "order_total": 80,
+      "order_date": "2025-05-20",
+      "shipping_address": "101 Pine St, Anycity, USA",
+      "customer_name": "Bob Brown",
+      "customer_email": "bob@example.com",
+      "line_items": [{
+        "line_item_id": 1,
+        "product_id": "V001",
+        "product_name": "Valentines Box",
+        "price": 50
+      }]
+    },
+    {
+      "order_id": 5,
+      "order_total": 300,
+      "order_date": "2025-05-21",
+      "shipping_address": "202 Maple St, Newtown, USA",
+      "customer_name": "Charlie Green",
+      "customer_email": "charlie@example.com",
+      "line_items": [
+        {
+          "line_item_id": 1,
+          "product_id": "V001",
+          "product_name": "Valentines Box",
+          "price": 50
+        },
+        {
+          "line_item_id": 2,
+          "product_id": "B001",
+          "product_name": "Birthday Box",
+          "price": 60
+        },
+        {
+          "line_item_id": 3,
+          "product_id": "V001",
+          "product_name": "Valentines Box",
+          "price": 50
+        },
+        {
+          "line_item_id": 4,
+          "product_id": "C001",
+          "product_name": "Client Gift Box",
+          "price": 100
+        }
+      ]
+    }
+  ]
+  

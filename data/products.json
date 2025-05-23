@@ -1,0 +1,52 @@
+{
+  "R1": {
+    "name": "Red Roses Bouquet",
+    "inventory": 8,
+    "shelf": "A1"
+  },
+  "C1": {
+    "name": "Box of chocolates",
+    "inventory": 71,
+    "shelf": "B3"
+  },
+  "L1": {
+    "name": "Love card",
+    "inventory": 292,
+    "shelf": "C2"
+  },
+  "P1": {
+    "name": "Women’s perfume",
+    "inventory": 47,
+    "shelf": "A4"
+  },
+  "C2": {
+    "name": "Birthday cupcake",
+    "inventory": 90,
+    "shelf": "D1"
+  },
+  "G1": {
+    "name": "$100 Visa Gift Card",
+    "inventory": 39,
+    "shelf": "E1"
+  },
+  "C3": {
+    "name": "Birthday card",
+    "inventory": 258,
+    "shelf": "C3"
+  },
+  "B1": {
+    "name": "Bottle of wine",
+    "inventory": 110,
+    "shelf": "F1"
+  },
+  "F1": {
+    "name": "Fruit basket",
+    "inventory": 48,
+    "shelf": "F3"
+  },
+  "P2": {
+    "name": "Pen",
+    "inventory": 148,
+    "shelf": "C5"
+  }
+}
