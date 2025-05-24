@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+---
 
-First, run the development server:
+##  Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Aggregates product quantities needed from previous day's orders
+- Maps gift boxes to individual items using `box_definitions.json`
+- Displays item name, quantity, and shelf number
+- Lets pickers mark items as "Picked"
+- Updates inventory in real-time
+- Alerts if inventory goes below a critical threshold (e.g. <5)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+##  Problem-Solving Approach
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Breakdown:
+1. **Mapped business objects to structured data**:
+   - Orders → Boxes → Products
+2. **Centralized transformation logic** using `generatePickingList(date)`
+3. **Abstracted domain logic into `/lib`** for easy reuse/testability
+4. **Used public JSON** for data but designed code to easily upgrade to a real database
+5. **Designed scalable API strategy** with reusable handlers and minimal routes
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+##  Scalability
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Area         | Design Decision |
+|--------------|------------------|
+| Routing      | One route per domain (`picker`, `inventory`) rather than one per action |
+| Logic        | Separated into handler functions in `/lib/api/handlers` |
+| UI           | Componentized by domain (e.g., `/app/picking-list`) |
+| Data         | Easily replaceable mock JSON with real DB (e.g., Supabase) |
+| Growth-ready | New features like picker roles, task assignment, and analytics can plug in without rewrites |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+##  Known Limitations
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+-  No real authentication or roles implemented
+-  File-based JSON is not concurrent-safe (for demo use only)
+-  Only works for "yesterday" — no calendar UI yet
+-  No persistence after page reload unless backend stores state
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+##  Future Improvements
+
+- Use Supabase or PostgreSQL for persistent storage
+- Assign tasks to individual pickers
+- Add login, roles (e.g., Picker vs Manager)
+- Add reporting/export (CSV or PDF)
+- Add drag-and-drop assignment UI or mobile layout for pickers
+
+---
+
+

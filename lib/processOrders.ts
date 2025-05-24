@@ -23,14 +23,54 @@ interface Order {
 const orders: Order[] = rawOrders as Order[];
 
 // Main function
-export function generatePickingList(date: string) {
-    console.log("Generating picking list for date:", date);
+// export function generatePickingList(date: string) {
+//     console.log("Generating picking list for date:", date);
+//   const list: Record<string, { quantity: number; shelf: string }> = {};
+//   orders
+//     .filter((order) => order.order_date === date)
+//     .forEach((order) => {
+//       order.line_items.forEach((item) => {
+//         const componentProductIds = boxDefinitions[item.product_id]; 
+//         if (componentProductIds) {
+//           componentProductIds.forEach((productId) => {
+//             const product = products[productId];
+//             if (product) {
+//               if (!list[product.name]) {
+//                 list[product.name] = {
+//                   quantity: 0,
+//                   shelf: product.shelf
+//                 };
+//               }
+//               list[product.name].quantity += 1;
+//             }
+//           });
+//         }
+//       });
+//     });
+
+// //   return list;
+//     return Object.entries(list)
+//     .sort(([, a], [, b]) => a.shelf.localeCompare(b.shelf)) // sort by shelf
+//     .reduce((acc, [name, data]) => {
+//         acc[name] = data;
+//         return acc;
+//     }, {} as Record<string, { quantity: number; shelf: string }>);
+
+// }
+export function generatePickingList(startDate: string, endDate: string) {
   const list: Record<string, { quantity: number; shelf: string }> = {};
+
+  const start = new Date(startDate);
+  const end = new Date(endDate);
+
   orders
-    .filter((order) => order.order_date === date)
+    .filter(order => {
+      const orderDate = new Date(order.order_date);
+      return orderDate >= start && orderDate <= end;
+    })
     .forEach((order) => {
       order.line_items.forEach((item) => {
-        const componentProductIds = boxDefinitions[item.product_id]; 
+        const componentProductIds = boxDefinitions[item.product_id];
         if (componentProductIds) {
           componentProductIds.forEach((productId) => {
             const product = products[productId];
@@ -48,12 +88,10 @@ export function generatePickingList(date: string) {
       });
     });
 
-//   return list;
-    return Object.entries(list)
-    .sort(([, a], [, b]) => a.shelf.localeCompare(b.shelf)) // sort by shelf
+  return Object.entries(list)
+    .sort(([, a], [, b]) => a.shelf.localeCompare(b.shelf))
     .reduce((acc, [name, data]) => {
-        acc[name] = data;
-        return acc;
+      acc[name] = data;
+      return acc;
     }, {} as Record<string, { quantity: number; shelf: string }>);
-
 }

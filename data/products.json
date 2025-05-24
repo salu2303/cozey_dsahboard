@@ -1,7 +1,7 @@
 {
   "R1": {
     "name": "Red Roses Bouquet",
-    "inventory": 8,
+    "inventory": 12,
     "shelf": "A1"
   },
   "C1": {
@@ -16,7 +16,7 @@
   },
   "P1": {
     "name": "Women’s perfume",
-    "inventory": 47,
+    "inventory": 43,
     "shelf": "A4"
   },
   "C2": {
